@@ -10,20 +10,29 @@
 <a href="{% url 'task-create' %}">Add Item</a>
 
 <table>
-    <tr>
-        <th>Items</th>
-        <th>Actions</th>
-    </tr>
+    <thead>
+        <tr>
+            <th>Items</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
     {% for task in tasks %}
+        
     <tr>
         <td>{{task.title}}</td>
         <td><a href="{% url 'task' task.id %}">View</a></td>
         <td><a href="{% url 'task-update' task.id %}">Update</a></td>
         <td><a href="{% url 'task-delete' task.id %}">Delete</a></td>
     </tr>
-    <tr>
-    {% empty %}
-    <h3>No items in list</h3>
+  
+        {% empty %}
+        <tr>
+            <th>
+                No items in list
+            </th>
+        </tr>
+           
     {% endfor %}
-    </tr>
+</tbody>
 </table>

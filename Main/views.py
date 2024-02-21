@@ -1,13 +1,18 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from django.contrib.auth.views import LoginView
+from django.contrib.auth import logout
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import task
 
 # Create your views here.
+
+def LogOut(request):
+    logout(request)
+    return redirect('login')
 
 class loginview(LoginView):
     template_name = 'Main/login.html'
@@ -43,3 +48,10 @@ class taskdelete(LoginRequiredMixin, DeleteView):
     template_name = 'Main/taskdelete.html'
     context_object_name = 'tasks'
     success_url = reverse_lazy('tasks')
+    
+    
+# def index(request):
+#     context = {
+        
+#     }
+#     return render(request, "", context)
