@@ -1,11 +1,16 @@
+{% load static tailwind_tags %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    {% tailwind_css %}
 </head>
-<body> 
+<body>
+    <div class="bg-black text-white">
+        Hello
+    </div> 
     <h1>Login</h1>
     <form Actions='' method="POST">
         {% csrf_token %}
