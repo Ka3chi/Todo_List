@@ -1,23 +1,30 @@
 {% load static tailwind_tags %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     {% tailwind_css %}
 </head>
+
 <body>
-    <div class="bg-black text-white">
-        Hello
-    </div> 
-    <h1>Login</h1>
-    <form Actions='' method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-    <input type="submit" value="Login">
-    <p>Dont have Account? <a href="{% url 'register' %}">Register</a></p>
-    </form>
-    
+    <div class="bg-gradient-to-r from-indigo-400 to-cyan-400 h-screen w-screen flex justify-center items-center">
+        <div class="bg-white h-[350px] w-[350px] rounded-[20px] p-5">
+            <h1 class="flex justify-center items-center m-3">Login</h1>
+            <form Actions='' method="POST">
+                <div>
+                    {% csrf_token %}
+                </div>
+                <div class="space-y-5 px-[50px]">
+                    {{ form.as_p }}
+                </div>
+                <input type="submit" value="Login" class="bg-gradient-to-r from-indigo-400 to-cyan-400 my-5 rounded-[10px] h-[50px] w-[210px] ml-[50px]">
+                <p class="flex justify-center items-center">Dont have Account? <a href="{% url 'register' %}"> Register</a></p>
+            </form>
+        </div>
+    </div>
 </body>
+
 </html>
